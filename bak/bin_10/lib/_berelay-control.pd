@@ -1,0 +1,109 @@
+#N canvas 129 340 1193 718 12;
+#N canvas 911 282 915 566 berelay-arrays-\$1 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-amount-\$1 64 float 3;
+#A 0 0.180178 0.310178 0.300178 0.170178 0.290178 0.240178 0.200178
+0.160178 0.200178 0.170178 0.290178 0.290178 0.220178 0.260178 0.160178
+0.280178 0.220178 0.210178 0.220178 0.210178 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 343 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-time-\$1 64 float 3;
+#A 0 0.835498 0.845498 0.835498 0.835498 0.845498 0.845498 0.845498
+0.845498 0.845498 0.845498 0.835498 0.845498 0.845498 0.845498 0.835498
+0.835498 0.845498 0.835498 0.835498 0.835498 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 242 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pre-del-\$1 64 float 3;
+#A 0 0.493204 0.463204 0.493204 0.463204 0.493204 0.463204 0.493204
+0.463204 0.493204 0.483204 0.473204 0.493204 0.483204 0.463204 0.493204
+0.483204 0.493204 0.483204 0.463204 0.493204 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 141 graph;
+#N canvas 992 147 450 300 init 0;
+#X obj 31 21 loadbang;
+#X obj 139 112 f \$2;
+#X obj 139 136 sel;
+#X msg 31 70 pre-del \, fb-time \, fb-amount \, hipass \, lopass;
+#X obj 31 94 symbol;
+#X msg 31 142 symbol \$1-\$2;
+#X obj 33 218 array size;
+#X obj 32 169 t b a;
+#X obj 32 193 f;
+#X obj 30 46 t b b;
+#X obj 139 160 print error_array_zero;
+#X obj 31 118 pack s \$1;
+#X connect 0 0 9 0;
+#X connect 1 0 2 0;
+#X connect 2 0 10 0;
+#X connect 2 1 8 1;
+#X connect 3 0 4 0;
+#X connect 4 0 11 0;
+#X connect 5 0 7 0;
+#X connect 7 0 8 0;
+#X connect 7 1 6 1;
+#X connect 8 0 6 0;
+#X connect 9 0 3 0;
+#X connect 9 1 1 0;
+#X connect 11 0 5 0;
+#X restore 791 60 pd init;
+#N canvas 953 130 450 494 update 0;
+#X obj 64 47 r update-\$1;
+#X obj 69 281 _iterate;
+#X obj 65 203 array size;
+#X obj 68 336 array get s 0 1;
+#X obj 69 408 s;
+#X obj 64 178 t b a a a, f 19;
+#X obj 199 311 makefilename _berelay-%s;
+#X msg 199 335 set \$1-%d;
+#X obj 199 359 makefilename;
+#X obj 68 308 t f f;
+#X symbolatom 199 383 0 0 0 0 - - -;
+#X msg 64 74 pre-del \, fb-time \, fb-amount \, hipass \, lopass;
+#X obj 64 98 symbol;
+#X msg 64 146 symbol \$1-\$2;
+#X obj 64 122 pack s \$1;
+#X obj 67 242 + \$3;
+#X connect 0 0 11 0;
+#X connect 1 0 9 0;
+#X connect 2 0 15 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;
+#X connect 5 1 2 1;
+#X connect 5 2 3 2;
+#X connect 5 3 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 1;
+#X connect 8 0 10 0;
+#X connect 9 0 3 0;
+#X connect 9 1 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 0;
+#X connect 15 0 1 0;
+#X restore 721 58 pd update;
+#X obj 757 109 bng 15 250 50 0 update-\$1 update-\$1-set update 17
+7 0 10 -262144 -1 -1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array hipass-\$1 64 float 3;
+#A 0 0.15 0.12 0.12 0.14 0.15 0.12 0.12 0.19 0.19 0.16 0.11 0.12 0.17
+0.12 0.16 0.16 0.13 0.1 0.13 0.14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 453 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array lopass-\$1 64 float 3;
+#A 0 0.85 0.95 0.81 0.92 0.87 0.88 0.86 0.92 0.85 0.93 0.98 0.88 0.84
+0.95 0.81 0.88 0.83 0.91 0.92 0.8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 543 graph;
+#X coords 0 -1 1 1 726 534 1 100 100;
+#X restore 107 110 pd berelay-arrays-\$1;
+#X coords 0 -1 1 1 741 553 2 100 100;

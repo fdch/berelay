@@ -1,0 +1,81 @@
+#N canvas 964 629 788 384 12;
+#N canvas 992 147 450 300 init 0;
+#X obj 39 32 loadbang;
+#X obj 113 146 array size pre-del-\$1;
+#X obj 103 176 array size fb-time-\$1;
+#X obj 93 206 array size fb-amount-\$1;
+#X obj 57 104 t f f f;
+#X obj 39 56 f \$2;
+#X obj 39 80 sel;
+#X connect 0 0 5 0;
+#X connect 4 0 3 0;
+#X connect 4 1 2 0;
+#X connect 4 2 1 0;
+#X connect 5 0 6 0;
+#X connect 6 1 4 0;
+#X restore 698 341 pd init;
+#N canvas 911 282 915 459 (subpatch) 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-amount-\$1 64 float 3;
+#A 0 0.49 0.32 0.8 0.04 0.35 0.78 0.69 0.46 0.58 0.35 0.64 0.92 0.26
+0.57 0.99 0.71 0.24 0.76 0.45 0.59 0.58 0.73 0.07 0.1 0.06 0.54 0.21
+0.75 0.64 0.19 0.56 0.25 0.98 0.42 0.1 0.78 0.86 0.4 0.09 0.17 0.77
+0.47 0.04 0.21 0.26 0.86 0.73 0.79 0.56 0.49 0.17 0.23 0.96 0.6 0.57
+0.44 0.34 0.6 0.35 0.19 0.65 0.69 0.12 0.36;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 322 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-time-\$1 64 float 3;
+#A 0 0.76 0.88 0.13 0.37 0.59 0.39 0.81 0.52 0.65 0.48 0.4 0.45 0.07
+0.29 0.39 0.16 0.95 0.98 0.9 0.38 0.89 0.44 0.61 0.86 0.45 0.06 0.81
+0.58 0.61 0.46 0.33 0.97 0.3 0.2 0.55 0.15 0.85 0.55 0.38 0.2 0.51
+0.17 0.25 0.34 0.87 0.9 0.08 0.2 0.42 0.49 0.27 0.06 0.99 0.28 0.7
+0.04 0.23 0 0.69 0.38 0.14 0.47 0.99 0.66;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 221 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pre-del-\$1 64 float 3;
+#A 0 0.99 0.88 0.9 0.13 0.66 0.06 0.52 0.42 0.98 0.86 0.45 0.79 0.1
+0.02 0.35 0.94 0.43 0.51 0.72 0.6 0.08 0.33 0.93 0.71 0.39 0.21 0.14
+0.71 0.36 0.35 0.34 0.76 0.21 0.17 0.32 0.95 0.79 0 0.64 0.55 0.11
+0.86 0.62 0.27 0.82 0.19 0.35 0.44 0.67 0.55 0.62 0.31 0.02 0.39 0.97
+0.21 0.3 0.78 0.62 0.86 0.52 0.11 0.48 0.54;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 120 graph;
+#X coords 0 -1 1 1 729 315 2 100 100;
+#X restore 21 22 pd;
+#N canvas 1299 250 450 494 update 0;
+#X obj 66 20 r update-\$1;
+#X obj 66 229 _iterate;
+#X obj 65 96 symbol;
+#X msg 65 72 pre-del-\$1 \, fb-time-\$1 \, fb-amount-\$1;
+#X obj 66 44 float \$1;
+#X obj 65 203 array size;
+#X obj 65 284 array get s 0 1;
+#X obj 66 356 s;
+#X obj 64 178 t b a a a, f 19;
+#X obj 196 259 makefilename _berelay-%s;
+#X msg 196 283 set \$1-%d;
+#X obj 196 307 makefilename;
+#X obj 65 256 t f f;
+#X symbolatom 196 331 0 0 0 0 - - -;
+#X connect 0 0 4 0;
+#X connect 1 0 12 0;
+#X connect 2 0 8 0;
+#X connect 3 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 8 0 5 0;
+#X connect 8 1 5 1;
+#X connect 8 2 6 2;
+#X connect 8 3 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 7 1;
+#X connect 11 0 13 0;
+#X connect 12 0 6 0;
+#X connect 12 1 11 0;
+#X restore 629 341 pd update;
+#X obj 571 341 bng 15 250 50 0 update-\$1 update-\$1-set update 17
+7 0 10 -262144 -1 -1;
