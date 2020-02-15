@@ -31,8 +31,10 @@ Follow instructions within Pure Data and adjust levels as necessary.
 ## listen
 
 - Stereo reduction [here](https://drive.google.com/file/d/15yYUjKUHFC_ux_8kwkNTxa5nmMhzHVnF/view?usp=sharing).
-- Download a multichannel version (24.4) [here](https://drive.google.com/file/d/15yYUjKUHFC_ux_8kwkNTxa5nmMhzHVnF/view?usp=sharing)
+- Download a multichannel version (24.4) [here](https://drive.google.com/file/d/1YdH20TWvSHejmskI3XhdPftj9PgRhMzn/view?usp=sharing)
 
 ---
 
-`berelay` results from a collaboration between fdch and [Berenice LLorens](https://berenicellorens.bandcamp.com). All guitars performed by Bere.
+## notes
+
+berelays is a duo for electric guitar and a massively multichannel delay network controlled live. The movement of the strings of the guitar is replicated at different times and locations evidencing that the smallest possible action that the performer makes has gigantic, beautiful, dreadful, and inspiring consequences. The work can be adapted to either the Cube or the Perform Studio, and it has variable length. It is entirely made using the Pure Data graphic programming environment with a chaos-based delay network. `berelay` results from a collaboration between fdch and [Berenice LLorens](https://berenicellorens.bandcamp.com). All guitars performed by Bere.
