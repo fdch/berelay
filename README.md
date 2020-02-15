@@ -35,6 +35,4 @@ Follow instructions within Pure Data and adjust levels as necessary.
 
 ---
 
-Enjoy!
-
-fdch
+`berelay` results from a collaboration between fdch and [Berenice LLorens](https://berenicellorens.bandcamp.com). All guitars performed by Bere.
