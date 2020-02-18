@@ -2,7 +2,7 @@
 
 ![berelay](https://raw.githubusercontent.com/fdch/berelay/master/berelay.jpg "berelay")
 
-A multichannel delay network based on the lorenz system of equatons, with an extra random twist, and presets you can play around with. It is intended for live performance with a line input (guitar or other). `berelay` is entirely made in Pure Data and uses `fd_lib` and `timbreID`, both avaliable via `Help>Find Externals`
+A multichannel delay network based on the lorenz system of equations, with an extra random twist, and presets with which you can play around. It is intended for live performance with a line input (guitar or other). `berelay` is entirely made in Pure Data and uses the externa libraries `fd_lib` and `timbreID`, both avaliable via `Help>Find Externals`.
 
 ---
 
@@ -37,4 +37,4 @@ Follow instructions within Pure Data and adjust levels as necessary.
 
 ## notes
 
-berelays is a duo for electric guitar and a massively multichannel delay network controlled live. The movement of the strings of the guitar is replicated at different times and locations evidencing that the smallest possible action that the performer makes has gigantic, beautiful, dreadful, and inspiring consequences. The work can be adapted to either the Cube or the Perform Studio, and it has variable length. It is entirely made using the Pure Data graphic programming environment with a chaos-based delay network. `berelay` results from a collaboration between fdch and [Berenice LLorens](https://berenicellorens.bandcamp.com). All guitars performed by Bere.
+berelays is a duo for electric guitar and a massively multichannel delay network controlled live. The movement of the strings of the guitar is replicated at different times and locations evidencing that the smallest possible action that the performer makes has gigantic, beautiful, dreadful, and inspiring consequences. The work can be adapted to either the Cube or the Perform Studio, and it has variable length. It is entirely made using the Pure Data graphic programming environment with a chaos-based delay network. `berelay` results from a collaboration between [Berenice LLorens](https://berenicellorens.bandcamp.com) and [fdch](fdch.github.io). All guitars performed by Bere.
