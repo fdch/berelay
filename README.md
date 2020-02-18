@@ -17,7 +17,7 @@ The code can be accessed [here](https://github.com/fdch/berelay)
 2. Extract all files into one folder
 
 ### usage
-3. Open Pure Data. (Download it here if you don't have it [msp.ucsd.edu](http://msp.ucsd.edu))
+3. Open Pure Data. (Download it here if you don't have it [msp.ucsd.edu](http://msp.ucsd.edu/software.html))
 4. In Pure Data: go to `Help > Find Externals`, search for and download `fd_lib` and `timbreID`. (Make sure they have extracted correctly within Documents/Pd/externals)
 5. Open `main.pd` within the extracted folder.
 
