@@ -6,19 +6,21 @@ A multichannel delay network based on the lorenz system of equations, with an ex
 
 ---
 
-## usage
+## Download
 
 ### download
 
 1. Click the green "Clone or Download" button and chooose "Download ZIP"
 2. Extract all files into one folder
+
+### usage
 3. Open Pure Data. (Download it here if you don't have it [msp.ucsd.edu](msp.ucsd.edu))
 4. In Pure Data: go to `Help > Find Externals`, search for and download `fd_lib` and `timbreID`. (Make sure they have extracted correctly within Documents/Pd/externals)
 5. Open `main.pd` within the extracted folder.
 
 Follow instructions within Pure Data and adjust levels as necessary.
 
-### from terminal
+### clone from git
 
 ```
 $ git clone https://github.com/fdch/berelay.git
