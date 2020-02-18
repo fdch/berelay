@@ -4,12 +4,15 @@
 
 A multichannel delay network based on the lorenz system of equations, with an extra random twist, and presets with which you can play around. It is intended for live performance with a line input (guitar or other). `berelay` is entirely made in Pure Data and uses the externa libraries `fd_lib` and `timbreID`, both avaliable via `Help>Find Externals`.
 
+The code can be accessed [here](https://github.com/fdch/berelay)
+
 ---
 
 ## Download
 
 ### download
 
+1. Go to [https://github.com/fdch/berelay](https://github.com/fdch/berelay)
 1. Click the green "Clone or Download" button and chooose "Download ZIP"
 2. Extract all files into one folder
 
