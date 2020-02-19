@@ -1,0 +1,10 @@
+;
+pd-berelay-bin clear;
+pd-berelay-bin obj 10 10 _berelays 1 0 12 1000;
+pd-berelay-bin obj 10 40 _berelays 2 12 12 1000;
+make-rec clear;
+make-rec 12 1 0 1;
+make-rec 12 1 12 2;
+make-rec 2 1 24 3;
+make-rec 2 1 26 4;
+pd-berelay-bin loadbang;
