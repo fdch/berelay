@@ -45,3 +45,9 @@ Follow instructions within Pure Data and adjust levels as necessary.
 ## Program Notes
 
 berelays is a duo for electric guitar and a massively multichannel delay network controlled live. The movement of the strings of the guitar is replicated at different times and locations evidencing that the smallest possible action that the performer makes has gigantic, beautiful, dreadful, and inspiring consequences. The work can be adapted to either the Cube or the Perform Studio, and it has variable length. It is entirely made using the Pure Data graphic programming environment with a chaos-based delay network. `berelay` results from a collaboration between [Berenice LLorens](https://berenicellorens.bandcamp.com) and [fdch](https://fdch.github.io). All guitars performed by Bere.
+
+---
+
+## About the duo
+
+[https://fdch.github.io/projects/fd_br](https://fdch.github.io/projects/fd_br)
