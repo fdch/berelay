@@ -308,7 +308,7 @@ rec-canvas-set color 13 0 22;
 #X connect 19 0 14 2;
 #X connect 19 1 9 0;
 #X restore 197 76 pd record-gui-glue______;
-#N canvas 985 302 295 285 fx-controls 0;
+#N canvas 985 302 295 285 fx-controls 1;
 #X obj 8 9 cnv 15 138 130 empty clean-canvas clean 20 12 0 14 -233017
 -66577 0;
 #X obj 13 37 hsl 128 15 0 127 0 0 clean-amount clean-amount-set clean-amount
@@ -348,7 +348,7 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 400 1;
 #X floatatom 243 148 5 0 0 0 - chorus-amount -;
 #X floatatom 103 148 5 0 0 0 - reverb-amount -;
 #X restore 8 54 pd fx-controls ___________;
-#N canvas 20 473 292 225 input-controls 0;
+#N canvas 20 473 292 225 input-controls 1;
 #X obj 10 10 cnv 15 140 200 playback-canvas playback-canvas-set playback
 3 12 0 14 -233017 -66577 0;
 #X obj 18 135 bng 15 250 50 0 end-reached end-reached-set end 17 7
@@ -362,7 +362,7 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 400 1;
 #X obj 157 10 cnv 15 120 200 live-canvas live-canvas-set live 3 12
 0 14 -233017 -66577 0;
 #X obj 168 49 vsl 15 128 0 127 0 0 live-gain live-gain-set gain 0 -9
-0 10 -262144 -1 -1 0 1;
+0 10 -262144 -1 -1 9800 1;
 #X obj 192 58 vu 15 120 live-vu empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 200 14 tgl 15 0 live live-set live 17 7 0 10 -262144 -1 -1 0
 1;
@@ -379,7 +379,7 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 400 1;
 #X floatatom 184 186 0 0 0 0 dB live-gain -;
 #X floatatom 90 186 0 0 0 0 dB playback-gain -;
 #X restore 8 32 pd input-controls ________;
-#N canvas 315 473 205 122 record-controls 0;
+#N canvas 315 473 205 122 record-controls 1;
 #X obj 11 11 cnv 15 180 100 rec-canvas rec-canvas-set recording 20
 12 0 14 -233017 -66577 0;
 #X obj 13 71 bng 30 250 50 0 rec-filename rec-filename-set filename
@@ -388,7 +388,7 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 400 1;
 -1 -1 0 1;
 #X obj 48 39 fd_stopwatch;
 #X restore 8 76 pd record-controls _______;
-#N canvas 530 373 450 300 berelay-controls 0;
+#N canvas 530 373 450 300 berelay-controls 1;
 #X obj 6 5 cnv 15 430 280 berelays-canvas berelays-canvas-set empty
 20 12 0 14 -233017 -66577 0;
 #X obj 22 12 tgl 15 0 berelays berelays-set berelays 17 7 0 10 -159808
@@ -422,7 +422,7 @@ berelay-presets 0 -8 0 10 -262144 -1 -1 8;
 #X floatatom 120 51 0 0 0 0 - berelay-presets -;
 #X floatatom 43 208 0 0 0 0 dB berelay-vol -;
 #X restore 8 10 pd berelay-controls ______;
-#N canvas 1281 302 446 413 looper-controls 0;
+#N canvas 1281 302 446 413 looper-controls 1;
 #X obj 7 3 cnv 15 430 400 looper-canvas looper-canvas-set looper 20
 12 0 14 -233017 -66577 0;
 #X obj 27 28 tgl 15 0 rec-loop rec-loop-set rec-loop 17 8 0 10 -261234
@@ -437,9 +437,9 @@ berelay-presets 0 -8 0 10 -262144 -1 -1 8;
 8 0 10 -204786 -1 -1 0 1;
 #X obj 83 246 bng 15 250 50 0 store-loop store-loop-set store 17 7
 0 10 -261234 -1 -1;
-#X obj 24 279 hradio 15 1 0 4 play-loop play-loop-set play-loop 0 -8
+#X obj 24 279 hradio 15 1 0 1 play-loop play-loop-set play-loop 0 -8
 0 10 -262144 -1 -1 2;
-#X obj 24 335 hradio 15 1 0 4 play-single play-single-set play-single
+#X obj 24 335 hradio 15 1 0 1 play-single play-single-set play-single
 0 -8 0 10 -262144 -1 -1 0;
 #X obj 117 302 bng 15 250 50 0 stop-loops stop-loops-set stop-loops
 17 7 0 10 -262144 -1 -1;
@@ -456,7 +456,7 @@ normalize-dB 0 -8 0 10 -262144 -1 -1 100 256;
 #X obj 26 246 bng 15 250 50 0 listen-selection listen-selection-set
 listen 17 7 0 10 -204786 -1 -1;
 #X obj 29 198 hsl 395 10 0 127 0 0 rec-line rec-line-set rec-line 160
-6 0 8 -261234 -4160 -1 0 0;
+6 0 8 -261234 -4160 -1 39400 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array buffer 480000 float 2;
 #X coords 0 1 480000 -1 400 85 1 0 0;
@@ -483,14 +483,14 @@ clear 17 7 0 10 -4032 -1 -1;
 #X obj 158 62 bng 15 250 50 0 store-selections store-selections-set
 store 17 7 0 10 -261234 -1 -1;
 #X obj 374 267 vsl 15 128 0 127 0 0 loops-vol loops-vol-set loops-vol
-0 -9 0 10 -262144 -1 -1 0 1;
+0 -9 0 10 -262144 -1 -1 9200 1;
 #X obj 393 275 vu 15 120 loops-vu empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 22 376 hradio 15 1 0 7 choose-selection choose-selection-set
+#X obj 22 376 hradio 15 1 0 13 choose-selection choose-selection-set
 choose-selection 0 -8 0 10 -262144 -1 -1 5;
 #X obj 268 350 tgl 15 0 play-random play-random-set random 17 7 0 10
 -262144 -1 -1 0 1;
 #X obj 326 350 nbx 4 14 0 1e+37 0 1 random-time random-time-set time
-0 -8 0 10 -262144 -1 -1 16 256;
+0 -8 0 10 -262144 -1 -1 67 256;
 #X obj 27 302 tgl 15 0 notein-loop notein-loop-set notein-loop 17 7
 0 10 -262144 -1 -1 0 1;
 #X obj 287 257 nbx 2 14 0 13 0 0 play-env play-env-set play-env 0 -8
@@ -1923,7 +1923,7 @@ fb-amount-preset-min-set \$5 \; fb-amount-preset-max-set \$6 \; hipass-preset-mi
 #X connect 11 0 6 0;
 #X restore 14 214 pd _ quit ______________;
 #N canvas 0 22 450 300 _ 0;
-#N canvas 983 50 529 225 dac 0;
+#N canvas 983 50 529 225 dac 1;
 #X obj 10 10 _dac-stereo;
 #X restore 17 21 pd dac;
 #X restore 14 238 pd _ dac __________________;
