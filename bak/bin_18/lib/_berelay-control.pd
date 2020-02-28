@@ -1,0 +1,271 @@
+#N canvas 129 340 1193 718 12;
+#N canvas 908 166 915 754 berelay-arrays-\$1 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-amount-\$1 64 float 3;
+#A 0 0.73784 0.738624 1 0 0.0937984 0.737836 0.738632 1 0.00463706
+0.0977414 0.737829 0.738639 1 0.00923723 0.101402 0.73782 0.738644
+1 0.0137886 0.104774 0.737808 0.738648 1 0.0182792 0.107855 0.737794
+0.738651 1 0.0226977 0.110641 0.737778 0.738652 1 0.0270333 0.113128
+0.73776 0.738652 1 0.0312753 0.115317 0.737739 0.738651 1 0.0354137
+0.117205 0.737717 0.738648 1 0.0394387 0.118792 0.737693 0.738645 1
+0.0433413 0.12008 0.737667 0.738639 1 0.0471127 0.121068 0.737639 0.738632
+1 0.0507448;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 343 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array fb-time-\$1 64 float 3;
+#A 0 0.752746 1 0 0.0744323 0.752001 0.752756 1 0.00371135 0.0807507
+0.752027 0.752766 1 0.00754929 0.086954 0.752051 0.752778 1 0.011502
+0.0930247 0.752072 0.75279 1 0.0155569 0.0989461 0.75209 0.752802 1
+0.0197017 0.104702 0.752106 0.752814 1 0.0239237 0.110279 0.752119
+0.752826 1 0.0282102 0.115662 0.75213 0.752838 1 0.0325484 0.120838
+0.752139 0.752849 1 0.0369255 0.125797 0.752144 0.75286 1 0.0413289
+0.130526 0.752148 0.75287 1 0.0457458 0.135017 0.752148 0.75288 1 0.0501639
+0.139261;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 242 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array pre-del-\$1 64 float 3;
+#A 0 1 0 0.0223176 0.759214 0.760427 1 0.00115113 0.0280854 0.759259
+0.760418 1 0.00253003 0.0340052 0.759304 0.760411 1 0.00413295 0.0400568
+0.759348 0.760405 1 0.00595499 0.0462191 0.759391 0.760401 1 0.00799071
+0.0524713 0.759433 0.760398 1 0.0102337 0.058792 0.759473 0.760398
+1 0.0126772 0.0651598 0.759512 0.760399 1 0.0153133 0.0715536 0.759549
+0.760402 1 0.0181336 0.0779524 0.759585 0.760406 1 0.0211292 0.0843353
+0.759618 0.760412 1 0.0242905 0.0906822 0.75965 0.76042 1 0.0276074
+0.0969732 0.759679;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 141 graph;
+#N canvas 81 149 788 736 init 0;
+#X obj 31 21 loadbang;
+#X obj 139 112 f \$2;
+#X obj 139 136 sel;
+#X msg 31 70 pre-del \, fb-time \, fb-amount \, hipass \, lopass;
+#X obj 31 94 symbol;
+#X msg 31 142 symbol \$1-\$2;
+#X obj 189 335 array size;
+#X obj 137 276 f;
+#X obj 139 160 print error_array_zero;
+#X obj 31 118 pack s \$1;
+#X obj 146 306 t f f;
+#N canvas 207 67 794 816 lorenz 0;
+#X obj 335 56 loadbang;
+#X obj 393 331 crand 27 29;
+#X obj 527 384 crand 3 3.4;
+#X obj 522 300 t b b;
+#X obj 507 424 /;
+#X obj 376 257 t b b b;
+#X msg 355 395 inita \$1;
+#X msg 365 415 initb \$1;
+#X msg 375 435 initc \$1;
+#X msg 403 487 initx \$1;
+#X obj 703 243 t b b;
+#X obj 371 176 t b b b b;
+#X obj 335 80 t b b b;
+#X obj 116 402 lorenz;
+#X obj 268 390 until;
+#X obj 137 600 spigot;
+#X msg 471 162 0;
+#X msg 320 188 1;
+#X obj 137 750 outlet;
+#X obj 98 254 inlet;
+#X msg 662 592 reset;
+#X obj 215 557 list prepend 3;
+#X obj 215 581 siginfo;
+#X obj 241 632 list split 6;
+#X obj 337 599 t a a b;
+#X msg 268 366 5101;
+#X obj 273 22 inlet;
+#X obj 505 355 crand 7.5 8;
+#X msg 561 54 \; reinit bang;
+#X obj 341 307 crand 9.5 10.5;
+#X obj 69 318 t b b;
+#X obj 171 311 f;
+#X obj 203 312 + 1;
+#X obj 230 311 mod 5;
+#X obj 210 709 list prepend 0;
+#X obj 207 672 unpack f f f;
+#X obj 63 542 route;
+#X obj 233 735 list prepend 1;
+#X obj 249 761 list prepend 2;
+#X obj 417 754 list prepend 4;
+#X obj 382 708 list prepend 3;
+#X obj 370 649 list split 3;
+#X obj 376 678 list split 1;
+#X obj 603 517 crand 0.001 0.02;
+#X msg 413 507 inity 0;
+#X msg 423 527 initz 0;
+#X obj 625 402 crand 0.1 0.2;
+#X msg 451 579 inith 0.01;
+#X connect 0 0 12 0;
+#X connect 1 0 7 0;
+#X connect 2 0 4 1;
+#X connect 3 0 27 0;
+#X connect 3 1 2 0;
+#X connect 4 0 8 0;
+#X connect 5 0 29 0;
+#X connect 5 1 1 0;
+#X connect 5 2 3 0;
+#X connect 6 0 13 0;
+#X connect 7 0 13 0;
+#X connect 8 0 13 0;
+#X connect 9 0 13 0;
+#X connect 10 0 43 0;
+#X connect 10 0 47 0;
+#X connect 10 1 20 0;
+#X connect 11 0 25 0;
+#X connect 11 2 46 0;
+#X connect 11 3 10 0;
+#X connect 12 0 17 0;
+#X connect 12 1 11 0;
+#X connect 12 2 16 0;
+#X connect 13 0 21 0;
+#X connect 14 0 13 0;
+#X connect 15 0 18 0;
+#X connect 16 0 15 1;
+#X connect 17 0 15 1;
+#X connect 19 0 30 0;
+#X connect 20 0 24 0;
+#X connect 21 0 22 0;
+#X connect 22 0 35 0;
+#X connect 22 1 23 0;
+#X connect 23 0 41 0;
+#X connect 23 1 39 0;
+#X connect 24 0 13 0;
+#X connect 24 1 22 0;
+#X connect 25 0 14 0;
+#X connect 26 0 12 0;
+#X connect 27 0 4 0;
+#X connect 29 0 6 0;
+#X connect 30 0 13 0;
+#X connect 30 1 31 0;
+#X connect 31 0 32 0;
+#X connect 31 0 36 1;
+#X connect 32 0 33 0;
+#X connect 33 0 31 1;
+#X connect 34 0 36 0;
+#X connect 35 0 34 0;
+#X connect 35 1 37 0;
+#X connect 35 2 38 0;
+#X connect 36 0 15 0;
+#X connect 37 0 36 0;
+#X connect 38 0 36 0;
+#X connect 39 0 36 0;
+#X connect 40 0 36 0;
+#X connect 41 1 42 0;
+#X connect 42 0 40 0;
+#X connect 44 0 13 0;
+#X connect 45 0 13 0;
+#X connect 46 0 9 0;
+#X connect 47 0 13 0;
+#X restore 217 437 pd lorenz;
+#X obj 203 373 iterate;
+#X obj 203 397 t b f;
+#X obj 270 533 array set;
+#X obj 80 195 t a b a a a;
+#X obj 55 168 t b a;
+#X obj 93 19 r reinit;
+#X obj 130 567 tabletool;
+#X obj 187 19 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 122 479 set \$1 \, normalize 0 1;
+#X msg 68 640 \; clear_berelays-set bang \; update-\$1 bang;
+#X obj 46 388 f \$1;
+#X obj 30 46 t b b b b, f 36;
+#X msg 437 155 \; clear_berelays-set bang \;;
+#X connect 0 0 23 0;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 2 1 7 1;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 5 0 16 0;
+#X connect 7 0 10 0;
+#X connect 9 0 5 0;
+#X connect 10 0 12 0;
+#X connect 10 1 6 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
+#X connect 13 1 14 1;
+#X connect 15 0 20 0;
+#X connect 15 1 7 0;
+#X connect 15 2 6 1;
+#X connect 15 3 14 2;
+#X connect 16 0 22 0;
+#X connect 16 1 15 0;
+#X connect 17 0 23 0;
+#X connect 19 0 23 0;
+#X connect 20 0 18 0;
+#X connect 22 0 21 0;
+#X connect 23 0 3 0;
+#X connect 23 1 1 0;
+#X connect 23 2 11 1;
+#X connect 23 3 24 0;
+#X restore 791 60 pd init;
+#N canvas 953 130 450 494 update 0;
+#X obj 64 47 r update-\$1;
+#X obj 69 281 _iterate;
+#X obj 65 203 array size;
+#X obj 68 336 array get s 0 1;
+#X obj 69 408 s;
+#X obj 64 178 t b a a a, f 19;
+#X obj 199 311 makefilename _berelay-%s;
+#X msg 199 335 set \$1-%d;
+#X obj 199 359 makefilename;
+#X obj 68 308 t f f;
+#X symbolatom 199 383 0 0 0 0 - - -;
+#X msg 64 74 pre-del \, fb-time \, fb-amount \, hipass \, lopass;
+#X obj 64 98 symbol;
+#X msg 64 146 symbol \$1-\$2;
+#X obj 64 122 pack s \$1;
+#X obj 67 242 + \$3;
+#X connect 0 0 11 0;
+#X connect 1 0 9 0;
+#X connect 2 0 15 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;
+#X connect 5 1 2 1;
+#X connect 5 2 3 2;
+#X connect 5 3 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 4 1;
+#X connect 8 0 10 0;
+#X connect 9 0 3 0;
+#X connect 9 1 8 0;
+#X connect 11 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 5 0;
+#X connect 14 0 13 0;
+#X connect 15 0 1 0;
+#X restore 721 58 pd update;
+#X obj 757 109 bng 15 250 50 0 update-\$1 update-\$1-set update 17
+7 0 10 -262144 -1 -1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array hipass-\$1 64 float 3;
+#A 0 0.0714012 0.722565 0.723637 1 0 0.0718193 0.722533 0.723628 1
+0.00352157 0.0719278 0.722499 0.723617 1 0.00687282 0.0717299 0.722464
+0.723605 1 0.010047 0.0712292 0.722427 0.723592 1 0.0130382 0.0704298
+0.72239 0.723577 1 0.0158406 0.0693361 0.722351 0.723562 1 0.0184492
+0.0679526 0.722312 0.723547 1 0.0208592 0.0662846 0.722271 0.72353
+1 0.0230666 0.0643371 0.72223 0.723513 1 0.0250676 0.0621158 0.722188
+0.723495 1 0.026859 0.0596264 0.722146 0.723477 1 0.0284379 0.0568749
+0.722103 0.723459 1;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 453 graph;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array lopass-\$1 64 float 3;
+#A 0 0.0294569 0.0535309 0.721961 0.723342 1 0.0306047 0.0502729 0.721917
+0.723324 1 0.0315341 0.046772 0.721873 0.723306 1 0.032244 0.0430348
+0.721829 0.723289 1 0.0327336 0.0390686 0.721785 0.723271 1 0.0330027
+0.0348804 0.721741 0.723255 1 0.0330511 0.0304778 0.721697 0.723239
+1 0.0328793 0.0258682 0.721653 0.723225 1 0.032488 0.0210596 0.721609
+0.723211 1 0.0318783 0.01606 0.721566 0.723199 1 0.0310516 0.0108778
+0.721523 0.723189 1 0.0300096 0.00552149 0.72148 0.72318 1 0.0287546
+0 0.721438 0.723173;
+#X coords 0 1 64 0 709 73 1 0 0;
+#X restore 109 543 graph;
+#X coords 0 -1 1 1 726 534 1 100 100;
+#X restore 107 110 pd berelay-arrays-\$1;
+#X coords 0 -1 1 1 741 553 2 100 100;
