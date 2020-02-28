@@ -1,4 +1,4 @@
-#N canvas 177 0 803 778 12;
+#N canvas 177 268 803 790 12;
 #X obj 30 5 r~ clean;
 #X msg 211 56 all \$1;
 #X obj 211 25 r berelays;
