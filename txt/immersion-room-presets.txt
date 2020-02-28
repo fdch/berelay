@@ -1,0 +1,12 @@
+;
+pd-berelay-bin clear;
+pd-berelay-bin obj 10 10 _berelays-vbap 1 0 12 1000;
+pd-berelay-bin obj 10 40 _berelays-vbap 2 12 12 1000;
+make-rec clear;
+make-rec 12 1 0 1;
+make-rec 12 1 12 2;
+make-rec 2 1 25 3;
+pd-berelay-bin loadbang;
+dac-xy 985 50 230;
+matrices read ../txt/m_ring-12.txt;
+update_matrices 0;

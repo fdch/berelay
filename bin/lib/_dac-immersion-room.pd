@@ -1,0 +1,38 @@
+#N canvas 212 61 1068 584 12;
+#X obj 559 194 env~;
+#X obj 559 218 - 100;
+#X obj 559 242 s vu;
+#X obj 740 246 env~;
+#X obj 740 270 - 101;
+#X obj 740 294 s sub-1-vu;
+#X obj 121 129 vsl 30 128 0 127 0 0 vol vol-set vol 0 -9 0 10 -262144
+-1 -1 10000 1;
+#X obj 159 129 vu 15 120 vu empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 121 276 nbx 5 14 -1e+37 1e+37 0 0 empty vol vol-dB 0 -8 0 10
+-262144 -1 -1 100 256;
+#X obj 212 129 vsl 15 128 0 127 0 0 sub-1 sub-1-set sub-1 0 -9 0 10
+-262144 -1 -1 8000 1;
+#X obj 241 129 vu 15 120 sub-1-vu empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 212 276 nbx 5 14 -1e+37 1e+37 0 0 empty sub-1 sub-1-dB 0 -8
+0 10 -262144 -1 -1 80 256;
+#X msg 780 76 vis 100 1;
+#X msg 903 123 vis 100 1;
+#X obj 186 340 loadbang;
+#X obj 186 364 s loaded_dac-multi;
+#X obj 559 116 clone _dacout 24 vol 12 rec;
+#X obj 503 332 r sub-2-set;
+#X obj 546 361 r floor-set;
+#X obj 741 219 _dacout 25 sub-1 1 rec 13;
+#X obj 674 176 lop~ 150;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 12 0 16 1;
+#X connect 13 0 19 1;
+#X connect 14 0 15 0;
+#X connect 16 0 0 0;
+#X connect 16 0 20 0;
+#X connect 19 0 3 0;
+#X connect 20 0 19 0;
+#X coords 0 -1 1 1 208 200 1 100 100;
