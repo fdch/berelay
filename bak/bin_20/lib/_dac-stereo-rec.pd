@@ -1,21 +1,21 @@
-#N canvas 212 194 1068 584 12;
+#N canvas 99 218 1068 584 12;
 #X obj 231 128 env~;
 #X obj 231 152 - 100;
 #X obj 231 176 s vu;
 #X obj 121 129 vsl 30 128 0 127 0 0 vol vol-set vol 0 -9 0 10 -262144
--1 -1 10300 1;
+-1 -1 0 1;
 #X obj 159 129 vu 15 120 vu empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 121 276 nbx 5 14 -1e+37 1e+37 0 0 empty vol vol-dB 0 -8 0 10
--262144 -1 -1 103 256;
+-262144 -1 -1 0 256;
 #X msg 403 29 vis 65 1;
 #X msg 433 55 vis 64 1;
-#X obj 341 210 loadbang;
-#X obj 341 234 s loaded_dac-stereo;
-#X obj 231 100 clone _dacout 64 vol 2 rec;
+#X obj 231 100 clone _dacout-stereo 64 vol 2 stereo-rec;
+#X obj 373 178 loadbang;
+#X obj 373 202 s loaded_dac-stereo;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
-#X connect 6 0 10 1;
-#X connect 7 0 10 1;
-#X connect 8 0 9 0;
-#X connect 10 0 0 0;
+#X connect 6 0 8 1;
+#X connect 7 0 8 1;
+#X connect 8 0 0 0;
+#X connect 9 0 10 0;
 #X coords 0 -1 1 1 116 199 1 100 100;

@@ -23,8 +23,8 @@
 #X msg 309 66 6.1;
 #X msg 241 66 perform;
 #X msg 245 90 immersion-room;
-#N canvas 1087 40 150 225 dac 1;
-#X obj 11 15 _dac-stereo;
+#N canvas 985 50 150 225 dac 1;
+#X obj 10 10 _dac-stereo;
 #X restore 216 310 pd dac;
 #N canvas 532 50 450 358 declare 0;
 #X obj 224 71 r init-playback;
@@ -128,27 +128,27 @@ berelays-6-cube" -open main.pd, f 41;
 #X connect 3 0 2 0;
 #X restore 16 89 pd samples;
 #N canvas 530 51 452 297 input 0;
-#N canvas 388 103 485 461 live 0;
+#N canvas 673 96 450 300 live 0;
 #X obj 49 9 adc~ 1;
-#X obj 46 341 *~;
-#X obj 266 163 r live;
-#X obj 46 237 *~;
-#X obj 83 194 pack f 10;
-#X obj 83 218 line~;
-#X obj 83 147 r live-gain;
-#X obj 266 187 _switch;
-#X obj 312 279 switch~;
-#X obj 46 365 throw~ input;
-#X obj 193 290 env~;
-#X obj 193 314 - 101;
-#X obj 240 313 - 101;
-#X obj 193 338 pack;
-#X obj 193 362 s live-vu;
-#X obj 83 171 dbtorms;
-#X obj 240 289 env~ 8192;
+#X obj 49 246 *~;
+#X obj 269 68 r live;
+#X obj 49 142 *~;
+#X obj 86 99 pack f 10;
+#X obj 86 123 line~;
+#X obj 86 52 r live-gain;
+#X obj 269 92 _switch;
+#X obj 315 184 switch~;
+#X obj 49 270 throw~ input;
+#X obj 196 195 env~;
+#X obj 196 219 - 101;
+#X obj 243 218 - 101;
+#X obj 196 243 pack;
+#X obj 196 267 s live-vu;
+#X obj 86 76 dbtorms;
+#X obj 243 194 env~ 8192;
 #X obj 201 11 r input-channel;
-#X msg 199 152 set \$1;
-#X obj 198 129 + 1;
+#X msg 202 57 set \$1;
+#X obj 201 34 + 1;
 #X connect 0 0 3 0;
 #X connect 1 0 9 0;
 #X connect 2 0 7 0;
@@ -1105,7 +1105,8 @@ clear \; make-rec clear \; pd-berelay-bin obj 10 10 _berelays 1 0 32
 #N canvas 474 53 806 725 _ 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array presets 10 float 3;
-#A 0 0.12 0.28 0.75 1 0.83 0.99 0.1 0.2 0.8 1;
+#A 0 0.463204 0.506494 0.835498 0.857143 0.160178 0.324678 0.1 0.2
+0.8 1;
 #X coords 0 1 10 0 229 231 1 0 0;
 #X restore 38 29 graph;
 #X obj 374 129 array get presets;
@@ -1580,7 +1581,7 @@ fb-amount-preset-min-set \$5 \; fb-amount-preset-max-set \$6 \; hipass-preset-mi
 #X connect 37 1 34 1;
 #X restore 216 337 pd test;
 #N canvas 530 373 450 294 controls 0;
-#N canvas 89 45 450 300 berelay-controls 0;
+#N canvas 534 243 450 300 berelay-controls 1;
 #X obj 6 5 cnv 15 430 280 berelays-canvas berelays-canvas-set empty
 20 12 0 14 -233017 -66577 0;
 #X obj 22 13 tgl 15 0 berelays berelays-set berelays 17 7 0 10 -159808
@@ -1595,9 +1596,9 @@ fb-amount-preset-min-set \$5 \; fb-amount-preset-max-set \$6 \; hipass-preset-mi
 17 7 0 10 -4032 -1 -1;
 #X obj 47 79 vu 15 120 berelay-vu empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 21 71 vsl 15 128 0 127 0 0 berelay-vol berelay-vol-set berelay-vol
-0 -9 0 10 -262144 -1 -1 9400 1;
+0 -9 0 10 -262144 -1 -1 0 1;
 #X obj 150 55 hradio 15 1 0 11 berelay-presets berelay-presets-set
-berelay-presets 0 -8 0 10 -262144 -1 -1 0;
+berelay-presets 0 -8 0 10 -262144 -1 -1 7;
 #X obj 324 183 hsl 80 10 0 127 0 0 g_hipass g_hipass-set g_hipass -2
 -8 0 10 -262144 -1 -1 0 1;
 #X obj 324 207 hsl 80 10 0 127 0 0 g_lopass g_lopass-set g_lopass -2
@@ -1634,7 +1635,7 @@ berelay-presets 0 -8 0 10 -262144 -1 -1 0;
 10 -262144 -1 -1 0 1;
 #X restore 326 229 pd vbap;
 #X restore 8 10 pd berelay-controls ______;
-#N canvas 834 302 446 413 looper-controls 0;
+#N canvas 834 302 446 413 looper-controls 1;
 #X obj 7 3 cnv 15 430 400 looper-canvas looper-canvas-set looper 20
 12 0 14 -233017 -66577 0;
 #X obj 27 28 tgl 15 0 rec-loop rec-loop-set rec-loop 17 8 0 10 -261234
@@ -1670,8 +1671,8 @@ listen 17 7 0 10 -204786 -1 -1;
 #X obj 29 198 hsl 395 10 0 127 0 0 rec-line rec-line-set rec-line 160
 6 0 8 -261234 -4160 -1 0 0;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array buffer 441000 float 2;
-#X coords 0 1 441000 -1 400 85 1 0 0;
+#X array buffer 160000 float 2;
+#X coords 0 1 160000 -1 400 85 1 0 0;
 #X restore 26 123 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array selections 480000 float 4;
@@ -1718,16 +1719,16 @@ empty 0 -8 0 10 -262144 -1 -1 0 256;
 -1 -1;
 #X restore 8 97 pd looper-controls _______;
 #N canvas 985 303 295 285 fx-controls 1;
-#X obj 8 9 cnv 15 138 130 empty clean-canvas clean 20 12 0 14 -225271
--1 0;
+#X obj 8 9 cnv 15 138 130 empty clean-canvas clean 20 12 0 14 -233017
+-66577 0;
 #X obj 13 37 hsl 128 15 0 127 0 0 clean-amount clean-amount-set clean-amount
-10 8 0 10 -262144 -1 -1 8900 1;
-#X obj 149 9 cnv 15 138 130 empty panner-canvas panner 20 12 0 14 -225271
--1 0;
-#X obj 6 142 cnv 15 138 130 empty reverb-canvas reverb 20 12 0 14 -225271
--1 0;
+10 8 0 10 -262144 -1 -1 0 1;
+#X obj 149 9 cnv 15 138 130 empty panner-canvas panner 20 12 0 14 -233017
+-66577 0;
+#X obj 6 142 cnv 15 138 130 empty reverb-canvas reverb 20 12 0 14 -233017
+-66577 0;
 #X obj 148 142 cnv 15 138 130 empty chorus-canvas chorus 20 12 0 14
--225271 -1 0;
+-233017 -66577 0;
 #X obj 14 226 hsl 128 15 0 127 0 1 reverb-cutoff reverb-cutoff-set
 reverb-cutoff 10 8 0 10 -262144 -1 -1 12700 1;
 #X obj 14 188 hsl 128 15 0 127 0 1 reverb-volume reverb-volume-set
@@ -1735,7 +1736,7 @@ reverb-volume 10 8 0 10 -262144 -1 -1 11800 1;
 #X obj 14 207 hsl 128 15 0 127 0 1 reverb-feedback reverb-feedback-set
 reverb-feedback 10 8 0 10 -262144 -1 -1 12700 1;
 #X obj 14 170 hsl 128 15 0 127 0 0 reverb-amount reverb-amount-set
-reverb-amount 10 8 0 10 -262144 -1 -1 6800 1;
+reverb-amount 10 8 0 10 -262144 -1 -1 0 1;
 #X obj 153 188 hsl 128 15 0 127 0 1 chorus-time chorus-time-set chorus-time
 10 8 0 10 -262144 -1 -1 4300 1;
 #X obj 153 206 hsl 128 15 0 127 0 1 chorus-width chorus-width-set chorus-width
@@ -1743,13 +1744,13 @@ reverb-amount 10 8 0 10 -262144 -1 -1 6800 1;
 #X obj 153 224 hsl 128 15 0 127 0 1 chorus-speed chorus-speed-set chorus-speed
 10 8 0 10 -262144 -1 -1 6400 1;
 #X obj 153 170 hsl 128 15 0 127 0 0 chorus-amount chorus-amount-set
-chorus-amount 10 8 0 10 -262144 -1 -1 9200 1;
+chorus-amount 10 8 0 10 -262144 -1 -1 0 1;
 #X obj 153 242 hsl 128 15 0 127 0 1 chorus-stereo chorus-stereo-set
 chorus-stereo 10 8 0 10 -262144 -1 -1 5700 1;
 #X obj 155 55 hsl 128 15 0 127 0 1 panner-speed panner-speed-set panner-speed
 10 8 0 10 -262144 -1 -1 7800 1;
 #X obj 155 37 hsl 128 15 0 127 0 0 panner-amount panner-amount-set
-panner-amount 10 8 0 10 -262144 -1 -1 5700 1;
+panner-amount 10 8 0 10 -262144 -1 -1 0 1;
 #X obj 14 244 hsl 128 15 0 127 0 1 reverb-cutoff-amt reverb-cutoff-amt-set
 reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 1400 1;
 #X floatatom 104 14 5 0 0 0 - clean-amount -;
@@ -1769,11 +1770,11 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 1400 1;
 #X obj 18 71 bng 15 250 50 0 playback-start playback-start-set play
 17 7 0 10 -4034 -1 -1;
 #X obj 157 10 cnv 15 120 200 live-canvas live-canvas-set live 3 12
-0 14 -225271 -1 0;
+0 14 -233017 -66577 0;
 #X obj 168 49 vsl 15 128 0 127 0 0 live-gain live-gain-set gain 0 -9
-0 10 -262144 -1 -1 9800 1;
+0 10 -262144 -1 -1 0 1;
 #X obj 192 58 vu 15 120 live-vu empty -1 -8 0 10 -66577 -1 1 0;
-#X obj 236 15 tgl 15 0 live live-set live 17 7 0 10 -262144 -1 -1 1
+#X obj 200 14 tgl 15 0 live live-set live 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 80 13 tgl 15 0 playback playback-set playback 17 7 0 10 -262144
 -1 -1 0 1;
@@ -1783,7 +1784,7 @@ reverb-cutoff-amt 10 8 0 10 -262144 -1 -1 1400 1;
 ;
 #X obj 17 41 bng 15 250 50 0 open-file open-file-set open 17 7 0 10
 -261682 -1 -1;
-#X obj 193 33 hradio 15 1 0 4 input-channel input-channel-set input
+#X obj 243 28 hradio 15 1 0 2 input-channel input-channel-set input
 0 -8 0 10 -262144 -1 -1 0;
 #X floatatom 184 186 0 0 0 0 dB live-gain -;
 #X floatatom 90 186 0 0 0 0 dB playback-gain -;
@@ -2224,48 +2225,6 @@ rec-canvas-set color 13 0 22;
 #X restore 250 159 pd looper-free;
 #X restore 197 98 pd looper-gui-glue _____;
 #X restore 216 202 pd controls;
-#N canvas 694 58 450 478 joyosc 0;
-#X obj 35 81 netreceive -u -b 8880;
-#X obj 35 107 oscparse;
-#X obj 35 133 list trim;
-#X obj 35 159 route joyosc;
-#X obj 35 185 route devices;
-#X obj 35 211 route gc0;
-#X obj 35 237 route button;
-#X obj 35 263 route dpright dpleft;
-#X obj 35 289 sel 1;
-#X obj 97 289 sel 1;
-#X obj 35 341 counter;
-#X msg 35 315 i 1 \, bang;
-#X msg 139 307 i -1 \, bang;
-#X obj 35 419 s berelay-presets-set;
-#X obj 303 392 s gaussian-set;
-#X obj 240 427 s randomize-set;
-#X obj 208 394 s reinit-bang;
-#X obj 35 393 moses 11;
-#X obj 208 368 sel 11 12 13;
-#X obj 35 367 mod 14;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 3 0 4 0;
-#X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 7 1 9 0;
-#X connect 8 0 11 0;
-#X connect 9 0 12 0;
-#X connect 10 0 19 0;
-#X connect 11 0 10 0;
-#X connect 12 0 10 0;
-#X connect 17 0 13 0;
-#X connect 17 1 18 0;
-#X connect 18 0 16 0;
-#X connect 18 1 15 0;
-#X connect 18 2 14 0;
-#X connect 19 0 17 0;
-#X restore 220 175 pd joyosc;
 #X connect 1 0 2 0;
 #X connect 3 0 2 0;
 #X connect 4 0 2 0;
